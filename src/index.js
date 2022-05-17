@@ -1,7 +1,7 @@
 import './scss/index.scss';
 import mainUi from './modules/MainUi.js';
 
-window.onload = async() => {
+window.onload = async () => {
   await mainUi.setup();
 };
 

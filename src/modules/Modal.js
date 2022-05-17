@@ -11,7 +11,7 @@ export default class Modal {
 
     for (let i = 1; i <= 20; i += 1) {
       if (this.data[`strIngredient${i}`] !== '') {
-        const li = `<li class="badge">${this.data[`strIngredient${i}`]}</li>`
+        const li = `<li class="badge">${this.data[`strIngredient${i}`]}</li>`;
         this.element.querySelector('#modal-ingredients').innerHTML += li;
       }
     }
