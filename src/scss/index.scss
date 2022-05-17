@@ -9,3 +9,19 @@ body {
 .link {
   @apply text-blue-600 hover:text-blue-500 transition-all duration-200;
 }
+
+.main-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.logo {
+  background: url('../images/logo.jpg') no-repeat center center;
+  background-size: contain;
+  margin: 10px;
+  width: 128px;
+  height: 100px;
+}
