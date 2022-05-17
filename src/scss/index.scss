@@ -25,3 +25,38 @@ body {
   width: 128px;
   height: 100px;
 }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+}
+
+.dish-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.likes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.main-button {
+  margin: 5px auto;
+  height: min-content;
+  border: darkslategrey 1px solid;
+  border-radius: 4px;
+  box-shadow: 3px 3px darkslategrey;
+  padding: 4px 8px;
+}
