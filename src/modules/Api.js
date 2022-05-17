@@ -11,6 +11,13 @@ class Api {
     .catch((error) => {
       throw error;
     });
+
+  getByCategory = (category) => fetch(`${this.baseUrl}/filter.php?c=${category}`)
+    .then((response) => response.json())
+    .then((json) => json.meals)
+    .catch((error) => {
+      throw error;
+    });
 }
 
 const api = new Api();
