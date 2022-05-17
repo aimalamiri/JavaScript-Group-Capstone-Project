@@ -18,6 +18,14 @@ class Api {
     .catch((error) => {
       throw error;
     });
+
+  getMeal = (idMeal) => fetch(`${this.baseUrl}/lookup.php?i=${idMeal}`)
+    .then((response) => response.json())
+    .then((json) => json.meals)
+    .then((list) => (list.length ? list[0] : {}))
+    .catch((error) => {
+      throw error;
+    });
 }
 
 const api = new Api();
