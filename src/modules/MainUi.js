@@ -6,7 +6,8 @@ class MainUi {
   };
 
   openComments = async (event) => {
-    //
+    const idMeal = event.target.parentElement.dataset.idmeal;
+    console.log(await api.getMeal(idMeal));
   };
 
   showItem = async (listElement, item) => {
