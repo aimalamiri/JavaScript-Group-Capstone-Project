@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/74bd4fba1e.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/74bd4fba1e.js" crossorigin="anonymous"></script>
     <title>Welcome to Meal Time</title>
   </head>
   <body>
@@ -23,11 +20,44 @@
     <main>
       <ul id="item-list" class="flex flex-wrap justify-around"></ul>
     </main>
+    <div class="relative z-10 hidden" id="modal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      <div class="fixed z-10 inset-0 overflow-y-auto">
+        <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+          <div class="bg-white rounded-lg sm:w-4/6 w-5/6">
+            <div class="p-5 flex justify-between rounded-t-lg items-center bg-gray-100">
+              <h3 class="text-xl" id="modal-title"></h3>
+              <button id="close-modal"><span class="fa-solid fa-xmark"></span></button>
+            </div>
+            <div class="p-5 text-left">
+              <div class="flex flex-wrap justify-between">
+                <div class="w-3/6">
+                  <img
+                    class="rounded-lg"
+                    id="modal-image"
+                    src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                    alt=""
+                  />
+                </div>
+                <div class="w-3/6 pl-5">
+                  <div id="modal-props">
+                    <span class="font-bold" id="modal-area"></span> food.
+                    <br>
+                    from <span id="modal-category" class="font-bold"></span> category 
+                  </div>
+                  <a href="" id="modal-video" class="link mb-12">Watch on youtube</a>
+                  <p id="modal-instruction" class="text-sm text-gray-600"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer class="px-16 py-10 bg-gray-200 border-t absolute bottom-0 w-full">
       Created by
       <a href="https://github.com/rbanos-mv" class="link">Roberto Baños</a> and
-      <a href="https://github.com/aimalamiri" class="link">Aimal Amiri</a> under
-      the MIT licence.
+      <a href="https://github.com/aimalamiri" class="link">Aimal Amiri</a> under the MIT licence.
     </footer>
   </body>
 </html>
