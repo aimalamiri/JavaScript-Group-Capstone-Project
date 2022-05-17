@@ -4,6 +4,13 @@ class Api {
   constructor() {
     this.baseUrl = baseUrl;
   }
+
+  getCategories = () => fetch(`${this.baseUrl}/categories.php`)
+    .then((response) => response.json())
+    .then((json) => json.categories)
+    .catch((error) => {
+      throw error;
+    });
 }
 
 const api = new Api();
