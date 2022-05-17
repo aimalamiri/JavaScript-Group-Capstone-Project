@@ -18,6 +18,10 @@ body {
   width: 100%;
 }
 
+.badge {
+  @apply bg-blue-500 text-white rounded-xl py-1 px-2 text-xs;
+}
+
 .logo {
   background: url("../images/logo.jpg") no-repeat center center;
   background-size: contain;
