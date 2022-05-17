@@ -5,8 +5,24 @@ class MainUi {
     await this.showList();
   };
 
-  showItem = async (listElement, item) => {
+  openComments = async (event) => {
     //
+  };
+
+  showItem = async (listElement, item) => {
+    const liElement = `<li class="card data-idMeal="${item.idMeal}">
+      <img src="${item.strMealThumb}/preview" alt="${item.strMeal}  image">
+      <div class="dish-name">
+        <span>${item.strMeal}</span>
+        <i class="fa-regular fa-heart"></i>
+      </div>
+      <div class="likes">n likes</div>
+      <button type="button" class="main-button">Coments</button>
+      <button type="button" class="main-button">Reservations</button>
+    </li>`;
+    listElement.insertAdjacentHTML('beforeend', liElement);
+    const btnElement = listElement.lastChild.querySelector('button');
+    btnElement.addEventListener('click', this.openComments);
   };
 
   showList = async () => {
