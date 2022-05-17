@@ -1,4 +1,5 @@
 import api from './Api.js';
+import Modal from './Modal.js';
 
 class MainUi {
   setup = async () => {
@@ -6,19 +7,21 @@ class MainUi {
   };
 
   openComments = async (event) => {
-    const idMeal = event.target.parentElement.dataset.idmeal;
-    console.log(await api.getMeal(idMeal));
+    const idMeal = event.target.parentElement.dataset.mealId;
+    const data = await api.getMeal(idMeal);
+    const modal = new Modal(data);
+    modal.open();
   };
 
   showItem = async (listElement, item) => {
-    const liElement = `<li class="card data-idMeal="${item.idMeal}">
+    const liElement = `<li class="card" data-meal-id="${item.idMeal}">
       <img src="${item.strMealThumb}/preview" alt="${item.strMeal}  image">
       <div class="dish-name">
         <span>${item.strMeal}</span>
         <i class="fa-regular fa-heart"></i>
       </div>
       <div class="likes">n likes</div>
-      <button type="button" class="main-button">Coments</button>
+      <button type="button" class="main-button meal-comment"">Coments</button>
       <button type="button" class="main-button">Reservations</button>
     </li>`;
     listElement.insertAdjacentHTML('beforeend', liElement);
