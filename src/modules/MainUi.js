@@ -18,8 +18,8 @@ class MainUi {
   addLike = async (event) => {
     const likeBtn = event.target;
     const liElement = likeBtn.parentElement.parentElement;
-    const { idmeal } = liElement.dataset;
-    await api.addLike(this.idApp, idmeal);
+    const { mealId } = liElement.dataset;
+    await api.addLike(this.idApp, mealId);
     const likes = await api.getLikes(this.idApp);
     await this.showLike(liElement, likes);
   }
@@ -55,8 +55,8 @@ class MainUi {
     if (element.nodeName === 'LI') {
       likeElement = element.querySelector('.likes');
     }
-    const { idmeal } = likeElement.parentElement.dataset;
-    const like = likes.find((item) => item.item_id === idmeal) || {};
+    const { mealId } = likeElement.parentElement.dataset;
+    const like = likes.find((item) => item.item_id === mealId) || {};
     const count = like.likes || 0;
     likeElement.textContent = `${count} Likes`;
   }
