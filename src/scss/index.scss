@@ -11,15 +11,11 @@ body {
 }
 
 .main-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
+  @apply flex flex-row items-center justify-around w-full;
 }
 
 .logo {
-  background: url("../images/logo.jpg") no-repeat center center;
+  background: url('../images/logo.jpg') no-repeat center center;
   background-size: contain;
   margin: 10px;
   width: 128px;
@@ -27,36 +23,23 @@ body {
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 300px;
-  padding: 20px;
+  @apply flex flex-col justify-center items-center md:w-4/12 w-3/6 m-4 p-6 bg-white;
+}
+
+.dish-img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
 
 .dish-name {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  @apply flex flex-row items-end justify-between w-full;
 }
 
 .likes {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
+  @apply flex flex-row items-center justify-end w-full;
 }
 
 .main-button {
-  margin: 5px auto;
-  height: min-content;
-  border: darkslategrey 1px solid;
-  border-radius: 4px;
-  box-shadow: 3px 3px darkslategrey;
-  padding: 4px 8px;
+  @apply m-1 px-2 py-1 border-2 border-gray-500 rounded shadow-md shadow-slate-500;
 }
