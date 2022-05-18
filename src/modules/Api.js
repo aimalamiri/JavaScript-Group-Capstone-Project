@@ -40,6 +40,18 @@ class Api {
     .catch((error) => {
       throw error;
     });
+
+  addLike = async (idApp, idMeal) => fetch(`${this.involvementUrl}/apps/${idApp}/likes/`, {
+    method: 'POST',
+    body: JSON.stringify({ item_id: idMeal }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then(((response) => response.text()))
+    .catch((error) => {
+      throw error;
+    });
 }
 
 const api = new Api();
