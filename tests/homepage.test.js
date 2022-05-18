@@ -33,12 +33,11 @@ const html = `
       </ul>
     </main>`;
 
-describe ('Homepage test', () => {
+describe('Homepage test', () => {
   it('should count the number of meals in the menu', () => {
     document.body.innerHTML = html;
-    // 
     const count = mealCount();
     expect(count).toBeDefined();
     expect(count).toBe(2);
-  })
-})
+  });
+});

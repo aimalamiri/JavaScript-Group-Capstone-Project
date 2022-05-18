@@ -25,9 +25,7 @@ class MainUi {
     await this.showLike(liElement, likes);
   }
 
-  showMealCount = () => {
-    return mealCount();
-  }
+  showMealCount = () => mealCount();
 
   showItem = async (listElement, item) => {
     const liElement = `<li class="card" data-meal-id="${item.idMeal}">
