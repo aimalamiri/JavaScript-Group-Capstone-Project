@@ -4,6 +4,8 @@ import Modal from './Modal.js';
 class MainUi {
   setup = async () => {
     await this.showList();
+    this.idApp = await api.createApp();
+    await this.showLikes();
   };
 
   openComments = async (event) => {
@@ -12,6 +14,15 @@ class MainUi {
     const modal = new Modal(data);
     modal.open();
   };
+
+  addLike = async (event) => {
+    const likeBtn = event.target;
+    const liElement = likeBtn.parentElement.parentElement;
+    const { mealId } = liElement.dataset;
+    await api.addLike(this.idApp, mealId);
+    const likes = await api.getLikes(this.idApp);
+    await this.showLike(liElement, likes);
+  }
 
   showItem = async (listElement, item) => {
     const liElement = `<li class="card" data-meal-id="${item.idMeal}">
@@ -27,6 +38,8 @@ class MainUi {
     listElement.insertAdjacentHTML('beforeend', liElement);
     const btnElement = listElement.lastChild.querySelector('button');
     btnElement.addEventListener('click', this.openComments);
+    const likeElement = listElement.lastChild.querySelector('i');
+    likeElement.addEventListener('click', this.addLike);
   };
 
   showList = async () => {
@@ -36,6 +49,24 @@ class MainUi {
       this.showItem(listElement, dish);
     });
   };
+
+  showLike = async (element, likes) => {
+    let likeElement = element;
+    if (element.nodeName === 'LI') {
+      likeElement = element.querySelector('.likes');
+    }
+    const { mealId } = likeElement.parentElement.dataset;
+    const like = likes.find((item) => item.item_id === mealId) || {};
+    const count = like.likes || 0;
+    likeElement.textContent = `${count} Likes`;
+  }
+
+  showLikes = async () => {
+    const likes = await api.getLikes(this.idApp);
+    const listElement = document.querySelector('#item-list');
+    const likesList = listElement.querySelectorAll('.likes');
+    likesList.forEach((likeElement) => { this.showLike(likeElement, likes); });
+  }
 }
 
 const mainUi = new MainUi();
