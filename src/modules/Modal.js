@@ -54,6 +54,7 @@ export default class Modal {
       const username = this.element.querySelector('#modal-input-name').value;
       const message = this.element.querySelector('#modal-input-comment').value;
       api.addComment(this.data.idMeal, {username, comment: message});
+      commentForm.reset();
     });
   }
 
