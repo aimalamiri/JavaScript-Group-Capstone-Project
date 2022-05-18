@@ -1,4 +1,9 @@
-import { FREE_MEALS_URL, FREE_MEALS_API_KEY, INVOLVEMENT_URL, INVOLVEMENT_API_KEY } from './environment.js';
+import {
+  FREE_MEALS_URL,
+  FREE_MEALS_API_KEY,
+  INVOLVEMENT_URL,
+  INVOLVEMENT_API_KEY,
+} from './environment.js';
 
 class Api {
   constructor() {
@@ -77,7 +82,7 @@ class Api {
       .catch((error) => error);
     return result;
   };
-  
+
   addComment = async (mealId, data) => {
     const response = await fetch(`${this.involvementUrl}/apps/${this.involvementKey}/comments/`, {
       method: 'POST',
@@ -87,14 +92,12 @@ class Api {
       body: JSON.stringify({
         item_id: mealId,
         username: data.username,
-        comment: data.comment
-      })
+        comment: data.comment,
+      }),
     })
-      .then((response) => {
-        return response.json();
-      })
+      .then((response) => response.json())
       .catch((error) => error);
-      return response;
+    return response;
   };
 }
 
