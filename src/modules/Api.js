@@ -65,13 +65,11 @@ class Api {
     });
 
   getComments = async (idApp, mealId) => {
-    idApp = 'syl9VXuF63WqLTBCVz7o';
     let result;
     await fetch(`${this.involvementUrl}/apps/${idApp}/comments?item_id=${mealId}`)
       .then((response) => {
         result = response.json();
         if (!response.ok) {
-          console.log('No data found!');
           result = [];
         }
       })
