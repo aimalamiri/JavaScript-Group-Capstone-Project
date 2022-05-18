@@ -52,6 +52,12 @@ class Api {
     .catch((error) => {
       throw error;
     });
+
+  getLikes = (idApp) => fetch(`${this.involvementUrl}/apps/${idApp}/likes/`)
+    .then((response) => Number(response.headers.get("content-length")) > 0? response.json() : [])
+    .catch((error) => {
+      throw error;
+    });
 }
 
 const api = new Api();
