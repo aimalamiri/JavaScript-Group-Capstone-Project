@@ -65,9 +65,9 @@ class Api {
       throw error;
     });
 
-  getComments = async (idApp, mealId) => {
+  getComments = async (mealId) => {
     let result;
-    await fetch(`${this.involvementUrl}/apps/${idApp}/comments?item_id=${mealId}`)
+    await fetch(`${this.involvementUrl}/apps/${this.involvementKey}/comments?item_id=${mealId}`)
       .then((response) => {
         result = response.json();
         if (!response.ok) {
@@ -79,7 +79,7 @@ class Api {
   };
   
   addComment = async (mealId, data) => {
-    const response = fetch(`${this.involvementUrl}/apps/${this.involvementKey}/comments/`, {
+    const response = await fetch(`${this.involvementUrl}/apps/${this.involvementKey}/comments/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

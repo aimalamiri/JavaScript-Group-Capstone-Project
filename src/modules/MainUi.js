@@ -13,8 +13,7 @@ class MainUi {
   openComments = async (event) => {
     const idMeal = event.target.parentElement.dataset.mealId;
     const data = await api.getMeal(idMeal);
-    const comments = await api.getComments(this.idApp, idMeal);
-    const modal = new Modal(data, comments);
+    const modal = new Modal(data);
     modal.open();
   };
 
