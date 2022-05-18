@@ -1,8 +1,10 @@
 const baseUrl = 'https://www.themealdb.com/api/json/v1/1';
+const involvementUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
 
 class Api {
   constructor() {
     this.baseUrl = baseUrl;
+    this.involvementUrl = involvementUrl;
   }
 
   getCategories = () => fetch(`${this.baseUrl}/categories.php`)
@@ -23,6 +25,18 @@ class Api {
     .then((response) => response.json())
     .then((json) => json.meals)
     .then((list) => (list.length ? list[0] : {}))
+    .catch((error) => {
+      throw error;
+    });
+
+  createApp = async () => fetch(`${this.involvementUrl}/apps/`, {
+    method: 'POST',
+    body: '',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.text())
     .catch((error) => {
       throw error;
     });
