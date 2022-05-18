@@ -1,9 +1,15 @@
-import { FREE_MEALS_URL, FREE_MEALS_API_KEY, INVOLVEMENT_URL } from './environment.js';
+import {
+  FREE_MEALS_URL,
+  FREE_MEALS_API_KEY,
+  INVOLVEMENT_URL,
+  INVOLVEMENT_API_KEY,
+} from './environment.js';
 
 class Api {
   constructor() {
     this.baseUrl = FREE_MEALS_URL + FREE_MEALS_API_KEY;
     this.involvementUrl = INVOLVEMENT_URL;
+    this.involvementKey = INVOLVEMENT_API_KEY;
   }
 
   getCategories = () => fetch(`${this.baseUrl}/categories.php`)
@@ -64,9 +70,9 @@ class Api {
       throw error;
     });
 
-  getComments = async (idApp, mealId) => {
+  getComments = async (mealId) => {
     let result;
-    await fetch(`${this.involvementUrl}/apps/${idApp}/comments?item_id=${mealId}`)
+    await fetch(`${this.involvementUrl}/apps/${this.involvementKey}/comments?item_id=${mealId}`)
       .then((response) => {
         result = response.json();
         if (!response.ok) {
@@ -75,6 +81,23 @@ class Api {
       })
       .catch((error) => error);
     return result;
+  };
+
+  addComment = async (mealId, data) => {
+    const response = await fetch(`${this.involvementUrl}/apps/${this.involvementKey}/comments/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        item_id: mealId,
+        username: data.username,
+        comment: data.comment,
+      }),
+    })
+      .then((response) => response.json())
+      .catch((error) => error);
+    return response;
   };
 }
 

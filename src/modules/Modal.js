@@ -1,7 +1,8 @@
+import api from './Api.js';
+
 export default class Modal {
-  constructor(data, comments) {
+  constructor(data) {
     this.data = data;
-    this.comments = comments;
     this.element = document.querySelector('#modal');
   }
 
@@ -10,6 +11,7 @@ export default class Modal {
       this.element.querySelector(`#modal-${selector}`)[attr ?? 'textContent'] = this.data[value];
     };
 
+    this.element.querySelector('#modal-ingredients').innerHTML += '';
     for (let i = 1; i <= 20; i += 1) {
       if (this.data[`strIngredient${i}`] !== '') {
         const li = `<li class="badge">${this.data[`strIngredient${i}`]}</li>`;
@@ -17,15 +19,43 @@ export default class Modal {
       }
     }
 
+    this.#loadComments();
+
+    assignVlaue('title', 'strMeal');
+    assignVlaue('image', 'strMealThumb', 'src');
+    assignVlaue('video', 'strYoutube', 'href');
+    assignVlaue('source', 'strSource', 'href');
+    assignVlaue('instruction', 'strInstructions');
+    assignVlaue('area', 'strArea');
+    assignVlaue('category', 'strCategory');
+
+    const commentForm = this.element.querySelector('#modal-comment-form');
+
+    commentForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      let username = this.element.querySelector('#modal-input-name').value || '';
+      let message = this.element.querySelector('#modal-input-comment').value || '';
+      username = username.trim();
+      message = message.trim();
+      if (username !== '' && message !== '') {
+        await api.addComment(this.data.idMeal, { username, comment: message });
+        commentForm.reset();
+        this.#loadComments();
+      }
+    });
+  }
+
+  #loadComments = async () => {
+    const comments = await api.getComments(this.data.idMeal);
     const commentsCount = this.element.querySelector('#modal-comments-count');
     const commentsList = this.element.querySelector('#modal-comments');
     commentsList.innerHTML = '';
 
-    if (this.comments.length > 0) {
-      commentsCount.innerHTML = this.comments.length;
-      this.comments.forEach((comment) => {
+    if (comments.length > 0) {
+      commentsCount.innerHTML = comments.length;
+      comments.forEach((comment) => {
         const li = `
-      <li class="flex justify-start items-center gap-2">
+      <li class="comment">
         <span class="text-gray-500 text-xs">${comment.creation_date}</span>
         <span class="text-gray-700 font-bold">${comment.username}:</span>
         <span class="text-gray-900">${comment.comment}</span>
@@ -36,15 +66,7 @@ export default class Modal {
     } else {
       commentsCount.innerHTML = 'No';
     }
-
-    assignVlaue('title', 'strMeal');
-    assignVlaue('image', 'strMealThumb', 'src');
-    assignVlaue('video', 'strYoutube', 'href');
-    assignVlaue('source', 'strSource', 'href');
-    assignVlaue('instruction', 'strInstructions');
-    assignVlaue('area', 'strArea');
-    assignVlaue('category', 'strCategory');
-  }
+  };
 
   open() {
     this.element.classList.remove('hidden');
