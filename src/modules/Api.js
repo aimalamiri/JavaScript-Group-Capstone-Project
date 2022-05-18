@@ -1,10 +1,9 @@
-const baseUrl = 'https://www.themealdb.com/api/json/v1/1';
-const involvementUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
+import { FREE_MEALS_URL, FREE_MEALS_API_KEY, INVOLVEMENT_URL } from './environment.js';
 
 class Api {
   constructor() {
-    this.baseUrl = baseUrl;
-    this.involvementUrl = involvementUrl;
+    this.baseUrl = FREE_MEALS_URL + FREE_MEALS_API_KEY;
+    this.involvementUrl = INVOLVEMENT_URL;
   }
 
   getCategories = () => fetch(`${this.baseUrl}/categories.php`)
