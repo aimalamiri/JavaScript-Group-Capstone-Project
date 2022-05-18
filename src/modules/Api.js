@@ -47,7 +47,7 @@ class Api {
       'Content-type': 'application/json; charset=UTF-8',
     },
   })
-    .then(((response) => response.text()))
+    .then((response) => response.text())
     .catch((error) => {
       throw error;
     });
@@ -63,6 +63,19 @@ class Api {
     .catch((error) => {
       throw error;
     });
+
+  getComments = async (idApp, mealId) => {
+    let result;
+    await fetch(`${this.involvementUrl}/apps/${idApp}/comments?item_id=${mealId}`)
+      .then((response) => {
+        result = response.json();
+        if (!response.ok) {
+          result = [];
+        }
+      })
+      .catch((error) => error);
+    return result;
+  };
 }
 
 const api = new Api();
