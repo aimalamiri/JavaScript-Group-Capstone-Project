@@ -1,3 +1,5 @@
+import api from './Api.js';
+
 export default class Modal {
   constructor(data, comments) {
     this.data = data;
@@ -44,6 +46,15 @@ export default class Modal {
     assignVlaue('instruction', 'strInstructions');
     assignVlaue('area', 'strArea');
     assignVlaue('category', 'strCategory');
+
+    const commentForm = this.element.querySelector('#modal-comment-form');
+
+    commentForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = this.element.querySelector('#modal-input-name').value;
+      const message = this.element.querySelector('#modal-input-comment').value;
+      api.addComment(this.data.idMeal, {username, comment: message});
+    });
   }
 
   open() {
