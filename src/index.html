@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/74bd4fba1e.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/74bd4fba1e.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Welcome to Meal Time</title>
   </head>
   <body>
@@ -12,22 +15,34 @@
       <h1 class="font-medium text-center">Welcome to Meal Time</h1>
       <div class="main-header">
         <div class="logo"></div>
-        <h2>Meals(2)</h2>
-        <p>Main dishes</p>
-        <p>Desserts</p>
+        <h2 id="meals-count">Meals(0)</h2>
       </div>
     </header>
     <main class="bg-gray-200">
       <ul id="item-list" class="flex flex-wrap justify-around"></ul>
     </main>
-    <div class="relative z-10 hidden" id="modal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    <div
+      class="relative z-10 hidden"
+      id="modal"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+      ></div>
       <div class="fixed z-10 inset-0 overflow-y-auto">
-        <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+        <div
+          class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0"
+        >
           <div class="bg-white rounded-lg sm:w-4/6 w-5/6">
-            <div class="p-5 flex justify-between rounded-t-lg items-center bg-gray-100">
+            <div
+              class="p-5 flex justify-between rounded-t-lg items-center bg-gray-100"
+            >
               <h3 class="text-xl" id="modal-title"></h3>
-              <button id="close-modal"><span class="fa-solid fa-xmark"></span></button>
+              <button id="close-modal">
+                <span class="fa-solid fa-xmark"></span>
+              </button>
             </div>
             <div class="p-5 text-left">
               <div class="flex flex-wrap justify-between">
@@ -42,13 +57,24 @@
                 <div class="lg:w-3/6 w-full pl-5">
                   <div id="modal-props">
                     <span class="font-bold" id="modal-area"></span> food.
-                    <br>
-                    from <span id="modal-category" class="font-bold"></span> category 
-                    <br>
-                    <ul class="flex items-start flex-wrap gap-1 list-none my-2" id="modal-ingredients"><li>Contains </li></ul>
+                    <br />
+                    from
+                    <span id="modal-category" class="font-bold"></span> category
+                    <br />
+                    <ul
+                      class="flex items-start flex-wrap gap-1 list-none my-2"
+                      id="modal-ingredients"
+                    >
+                      <li>Contains</li>
+                    </ul>
                   </div>
-                  Watch on <a href="" id="modal-video" class="link">Youtube</a> or read in this <a href="#" class="link" id="modal-source">blog</a>
-                  <p id="modal-instruction" class="text-sm text-gray-600 mt-2"></p>
+                  Watch on
+                  <a href="" id="modal-video" class="link">Youtube</a> or read
+                  in this <a href="#" class="link" id="modal-source">blog</a>
+                  <p
+                    id="modal-instruction"
+                    class="text-sm text-gray-600 mt-2"
+                  ></p>
                 </div>
               </div>
             </div>
@@ -59,7 +85,8 @@
     <footer class="px-16 py-10 bg-gray-200 border-t absolute bottom-0 w-full">
       Created by
       <a href="https://github.com/rbanos-mv" class="link">Roberto Baños</a> and
-      <a href="https://github.com/aimalamiri" class="link">Aimal Amiri</a> under the MIT licence.
+      <a href="https://github.com/aimalamiri" class="link">Aimal Amiri</a> under
+      the MIT licence.
     </footer>
   </body>
 </html>

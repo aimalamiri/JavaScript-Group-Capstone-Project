@@ -1,10 +1,12 @@
 import api from './Api.js';
+import mealCount from './mealCount.js';
 import Modal from './Modal.js';
+import { INVOLVEMENT_API_KEY } from './environment.js';
 
 class MainUi {
   setup = async () => {
     await this.showList();
-    this.idApp = await api.createApp();
+    this.idApp = INVOLVEMENT_API_KEY || await api.createApp();
     await this.showLikes();
   };
 
@@ -23,6 +25,8 @@ class MainUi {
     const likes = await api.getLikes(this.idApp);
     await this.showLike(liElement, likes);
   }
+
+  showMealCount = () => mealCount();
 
   showItem = async (listElement, item) => {
     const liElement = `<li class="card" data-meal-id="${item.idMeal}">
@@ -48,6 +52,7 @@ class MainUi {
     dishes.forEach((dish) => {
       this.showItem(listElement, dish);
     });
+    this.showMealCount();
   };
 
   showLike = async (element, likes) => {
