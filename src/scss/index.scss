@@ -48,3 +48,11 @@ body {
 .main-button {
   @apply m-1 px-2 py-1 border-2 border-gray-500 rounded shadow-md shadow-slate-500;
 }
+
+.input {
+  @apply w-full rounded shadow-inner border-sky-200 outline-none border-2 p-2 mt-2;
+}
+
+.btn {
+  @apply bg-blue-600 text-white rounded px-2 py-1 ml-auto hover:bg-blue-500;
+}
