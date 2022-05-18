@@ -11,7 +11,8 @@ class MainUi {
   openComments = async (event) => {
     const idMeal = event.target.parentElement.dataset.mealId;
     const data = await api.getMeal(idMeal);
-    const modal = new Modal(data);
+    const comments = await api.getComments(this.idApp, idMeal);
+    const modal = new Modal(data, comments);
     modal.open();
   };
 
@@ -22,7 +23,7 @@ class MainUi {
     await api.addLike(this.idApp, mealId);
     const likes = await api.getLikes(this.idApp);
     await this.showLike(liElement, likes);
-  }
+  };
 
   showItem = async (listElement, item) => {
     const liElement = `<li class="card" data-meal-id="${item.idMeal}">
@@ -59,14 +60,16 @@ class MainUi {
     const like = likes.find((item) => item.item_id === mealId) || {};
     const count = like.likes || 0;
     likeElement.textContent = `${count} Likes`;
-  }
+  };
 
   showLikes = async () => {
     const likes = await api.getLikes(this.idApp);
     const listElement = document.querySelector('#item-list');
     const likesList = listElement.querySelectorAll('.likes');
-    likesList.forEach((likeElement) => { this.showLike(likeElement, likes); });
-  }
+    likesList.forEach((likeElement) => {
+      this.showLike(likeElement, likes);
+    });
+  };
 }
 
 const mainUi = new MainUi();

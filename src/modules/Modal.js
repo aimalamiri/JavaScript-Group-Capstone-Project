@@ -1,6 +1,7 @@
 export default class Modal {
-  constructor(data) {
+  constructor(data, comments) {
     this.data = data;
+    this.comments = comments;
     this.element = document.querySelector('#modal');
   }
 
@@ -14,6 +15,26 @@ export default class Modal {
         const li = `<li class="badge">${this.data[`strIngredient${i}`]}</li>`;
         this.element.querySelector('#modal-ingredients').innerHTML += li;
       }
+    }
+
+    const commentsCount = this.element.querySelector('#modal-comments-count');
+    const commentsList = this.element.querySelector('#modal-comments');
+    commentsList.innerHTML = '';
+
+    if (this.comments.length > 0) {
+      commentsCount.innerHTML = this.comments.length;
+      this.comments.forEach((comment) => {
+        const li = `
+      <li class="flex justify-start items-center gap-2">
+        <span class="text-gray-500 text-xs">${comment.creation_date}</span>
+        <span class="text-gray-700 font-bold">${comment.username}:</span>
+        <span class="text-gray-900">${comment.comment}</span>
+      </li>
+      `;
+        commentsList.innerHTML += li;
+      });
+    } else {
+      commentsCount.innerHTML = 'No';
     }
 
     assignVlaue('title', 'strMeal');
