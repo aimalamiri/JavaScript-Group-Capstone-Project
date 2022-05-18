@@ -33,9 +33,11 @@ export default class Modal {
 
     commentForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const username = this.element.querySelector('#modal-input-name').value || '';
-      const message = this.element.querySelector('#modal-input-comment').value || '';
-      if (username.trim() !== '' && message.trim() !== '') {
+      let username = this.element.querySelector('#modal-input-name').value || '';
+      let message = this.element.querySelector('#modal-input-comment').value || '';
+      username = username.trim();
+      message = message.trim();
+      if (username !== '' && message !== '') {
         await api.addComment(this.data.idMeal, { username, comment: message });
         commentForm.reset();
         this.#loadComments();
