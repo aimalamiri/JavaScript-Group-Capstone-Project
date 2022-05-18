@@ -1,11 +1,12 @@
 import api from './Api.js';
 import mealCount from './mealCount.js';
 import Modal from './Modal.js';
+import { INVOLVEMENT_API_KEY } from './environment.js';
 
 class MainUi {
   setup = async () => {
     await this.showList();
-    this.idApp = await api.createApp();
+    this.idApp = INVOLVEMENT_API_KEY || await api.createApp();
     await this.showLikes();
   };
 
