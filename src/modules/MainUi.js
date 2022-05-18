@@ -6,12 +6,12 @@ class MainUi {
   };
 
   openComments = async (event) => {
-    const idMeal = event.target.parentElement.dataset.idmeal;
-    console.log(await api.getMeal(idMeal));
+    const { idmeal } = event.target.parentElement.dataset;
+    console.log(await api.getMeal(idmeal));
   };
 
   showItem = async (listElement, item) => {
-    const liElement = `<li class="card data-idMeal="${item.idMeal}">
+    const liElement = `<li class="card" data-idmeal="${item.idMeal}">
       <img src="${item.strMealThumb}/preview" alt="${item.strMeal}  image">
       <div class="dish-name">
         <span>${item.strMeal}</span>
