@@ -65,7 +65,7 @@ class MainUi {
     const likes = await api.getLikes(this.idApp);
     const listElement = document.querySelector('#item-list');
     const likesList = listElement.querySelectorAll('.likes');
-    likesList.forEach((likeElement) => { this.showLike(likeElement, likes) });
+    likesList.forEach((likeElement) => { this.showLike(likeElement, likes); });
   }
 }
 
