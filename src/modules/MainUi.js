@@ -23,7 +23,7 @@ class MainUi {
 
   showItem = async (listElement, item) => {
     const liElement = `<li class="card" data-idmeal="${item.idMeal}">
-      <img src="${item.strMealThumb}/preview" alt="${item.strMeal}  image">
+      <img src="${item.strMealThumb}/preview" alt="${item.strMeal}  image" class="dish-img">
       <div class="dish-name">
         <span>${item.strMeal}</span>
         <i class="fa-regular fa-heart"></i>
