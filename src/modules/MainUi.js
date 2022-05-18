@@ -3,6 +3,8 @@ import api from './Api.js';
 class MainUi {
   setup = async () => {
     await this.showList();
+    this.idApp = await api.createApp(); 
+    await this.showLikes();
   };
 
   openComments = async (event) => {
@@ -33,6 +35,24 @@ class MainUi {
       this.showItem(listElement, dish);
     });
   };
+
+  showLike = async (element, likes) => {
+    let likeElement = element;
+    if (element.nodeName === 'LI') {
+      likeElement = element.querySelector('.likes');
+    }
+    const { idmeal } = likeElement.parentElement.dataset;
+    const like = likes.find((item) => item.item_id === idmeal) || {};
+    const count = like.likes || 0;
+    likeElement.textContent = `${count} Likes`;
+  }
+
+  showLikes = async () => {
+    const likes = await api.getLikes(this.idApp);
+    const listElement = document.querySelector('#item-list');
+    const likesList = listElement.querySelectorAll('.likes');
+    likesList.forEach((likeElement) => { this.showLike(likeElement, likes) });
+  }
 }
 
 const mainUi = new MainUi();
