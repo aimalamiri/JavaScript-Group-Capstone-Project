@@ -12,6 +12,15 @@ class MainUi {
     console.log(await api.getMeal(idmeal));
   };
 
+  addLike = async (event) => {
+    const likeBtn = event.target;
+    const liElement = likeBtn.parentElement.parentElement;
+    const { idmeal } = liElement.dataset;
+    await api.addLike(this.idApp, idmeal);
+    const likes = await api.getLikes(this.idApp);
+    await this.showLike(liElement, likes);
+  }
+
   showItem = async (listElement, item) => {
     const liElement = `<li class="card" data-idmeal="${item.idMeal}">
       <img src="${item.strMealThumb}/preview" alt="${item.strMeal}  image">
@@ -26,6 +35,8 @@ class MainUi {
     listElement.insertAdjacentHTML('beforeend', liElement);
     const btnElement = listElement.lastChild.querySelector('button');
     btnElement.addEventListener('click', this.openComments);
+    const likeElement = listElement.lastChild.querySelector('i');
+    likeElement.addEventListener('click', this.addLike);
   };
 
   showList = async () => {
