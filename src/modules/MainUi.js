@@ -1,4 +1,5 @@
 import api from './Api.js';
+import mealCount from './mealCount.js';
 import Modal from './Modal.js';
 
 class MainUi {
@@ -22,6 +23,10 @@ class MainUi {
     await api.addLike(this.idApp, mealId);
     const likes = await api.getLikes(this.idApp);
     await this.showLike(liElement, likes);
+  }
+
+  showMealCount = () => {
+    return mealCount();
   }
 
   showItem = async (listElement, item) => {
@@ -48,6 +53,7 @@ class MainUi {
     dishes.forEach((dish) => {
       this.showItem(listElement, dish);
     });
+    this.showMealCount();
   };
 
   showLike = async (element, likes) => {
