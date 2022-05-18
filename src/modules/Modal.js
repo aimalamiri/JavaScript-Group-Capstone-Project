@@ -33,11 +33,13 @@ export default class Modal {
 
     commentForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const username = this.element.querySelector('#modal-input-name').value;
-      const message = this.element.querySelector('#modal-input-comment').value;
-      await api.addComment(this.data.idMeal, { username, comment: message });
-      commentForm.reset();
-      this.#loadComments();
+      const username = this.element.querySelector('#modal-input-name').value || '';
+      const message = this.element.querySelector('#modal-input-comment').value || '';
+      if (username.trim() !== '' && message.trim() !== '') {
+        await api.addComment(this.data.idMeal, { username, comment: message });
+        commentForm.reset();
+        this.#loadComments();
+      }
     });
   }
 
@@ -62,7 +64,7 @@ export default class Modal {
     } else {
       commentsCount.innerHTML = 'No';
     }
-  }
+  };
 
   open() {
     this.element.classList.remove('hidden');
