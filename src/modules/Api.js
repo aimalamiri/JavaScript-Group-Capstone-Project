@@ -2,7 +2,7 @@ import { FREE_MEALS_URL, FREE_MEALS_API_KEY, INVOLVEMENT_URL } from './environme
 
 class Api {
   constructor() {
-    this.baseUrl = FREE_MEALS_URL+FREE_MEALS_API_KEY;
+    this.baseUrl = FREE_MEALS_URL + FREE_MEALS_API_KEY;
     this.involvementUrl = INVOLVEMENT_URL;
   }
 
