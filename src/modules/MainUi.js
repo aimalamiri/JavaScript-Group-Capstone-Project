@@ -4,7 +4,7 @@ import Modal from './Modal.js';
 class MainUi {
   setup = async () => {
     await this.showList();
-    this.idApp = await api.createApp(); 
+    this.idApp = await api.createApp();
     await this.showLikes();
   };
 
