@@ -11,7 +11,7 @@ class MainUi {
   };
 
   openComments = async (event) => {
-    const idMeal = event.target.parentElement.dataset.mealId;
+    const idMeal = event.target.closest('li').dataset.mealId;
     const data = await api.getMeal(idMeal);
     const modal = new Modal(data);
     modal.open();
@@ -19,7 +19,7 @@ class MainUi {
 
   addLike = async (event) => {
     const likeBtn = event.target;
-    const liElement = likeBtn.parentElement.parentElement;
+    const liElement = likeBtn.closest('li').closest('li');
     const { mealId } = liElement.dataset;
     await api.addLike(this.idApp, mealId);
     const likes = await api.getLikes(this.idApp);
@@ -29,8 +29,8 @@ class MainUi {
   showMealCount = () => mealCount();
 
   showItem = async (listElement, item) => {
-    const liElement = `<li class="card">
-      <div class="card-content" data-meal-id="${item.idMeal}">
+    const liElement = `<li class="card" data-meal-id="${item.idMeal}">
+      <div class="card-content">
         <img src="${item.strMealThumb}/preview" alt="${item.strMeal} image" class="dish-img">
         <div class="dish-name">
           <span>${item.strMeal}</span>
@@ -62,7 +62,7 @@ class MainUi {
     if (element.nodeName === 'LI') {
       likeElement = element.querySelector('.likes');
     }
-    const { mealId } = likeElement.parentElement.dataset;
+    const { mealId } = likeElement.closest('li').dataset;
     const like = likes.find((item) => item.item_id === mealId) || {};
     const count = like.likes || 0;
     likeElement.textContent = `${count} Likes`;
