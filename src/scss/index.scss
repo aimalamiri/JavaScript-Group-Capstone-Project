@@ -27,7 +27,11 @@ body {
 }
 
 .card {
-  @apply flex flex-col justify-center items-center md:w-4/12 w-3/6 m-4 p-6 bg-white border-2 border-gray-500 rounded-md;
+  @apply p-4 md:w-4/12 w-3/6;
+}
+
+.card-content {
+  @apply flex flex-col justify-center items-center p-6 bg-white rounded-xl;
 }
 
 .dish-img {

@@ -29,15 +29,17 @@ class MainUi {
   showMealCount = () => mealCount();
 
   showItem = async (listElement, item) => {
-    const liElement = `<li class="card" data-meal-id="${item.idMeal}">
-      <img src="${item.strMealThumb}/preview" alt="${item.strMeal} image" class="dish-img">
-      <div class="dish-name">
-        <span>${item.strMeal}</span>
-        <i class="fa-regular fa-heart"></i>
+    const liElement = `<li class="card">
+      <div class="card-content" data-meal-id="${item.idMeal}">
+        <img src="${item.strMealThumb}/preview" alt="${item.strMeal} image" class="dish-img">
+        <div class="dish-name">
+          <span>${item.strMeal}</span>
+          <i class="fa-regular fa-heart"></i>
+        </div>
+        <div class="likes">n likes</div>
+        <button type="button" class="main-btn meal-comment"">Coments &nbsp; <span class="fa fa-comment"></button>
+        <button type="button" class="main-btn">Reservations &nbsp; <i class="fa fa-calendar"></i></button>
       </div>
-      <div class="likes">n likes</div>
-      <button type="button" class="main-btn meal-comment"">Coments &nbsp; <span class="fa fa-comment"></button>
-      <button type="button" class="main-btn">Reservations &nbsp; <i class="fa fa-calendar"></i></button>
     </li>`;
     listElement.insertAdjacentHTML('beforeend', liElement);
     const btnElement = listElement.lastChild.querySelector('button');
