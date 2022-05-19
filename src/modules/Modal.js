@@ -12,11 +12,12 @@ export default class Modal {
       this.element.querySelector(`#modal-${selector}`)[attr ?? 'textContent'] = this.data[value];
     };
 
-    this.element.querySelector('#modal-ingredients').innerHTML += '';
+    const ingredients = this.element.querySelector('#modal-ingredients');
+    ingredients.innerHTML = '';
     for (let i = 1; i <= 20; i += 1) {
       if (this.data[`strIngredient${i}`] !== '') {
         const li = `<li class="badge">${this.data[`strIngredient${i}`]}</li>`;
-        this.element.querySelector('#modal-ingredients').innerHTML += li;
+        ingredients.innerHTML += li;
       }
     }
 
