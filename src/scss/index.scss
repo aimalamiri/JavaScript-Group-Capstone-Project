@@ -19,7 +19,7 @@ body {
 }
 
 .logo {
-  background: url("../images/logo.jpg") no-repeat center center;
+  background: url("../images/logo.png") no-repeat center center;
   background-size: contain;
   margin: 10px;
   width: 128px;
@@ -27,30 +27,65 @@ body {
 }
 
 .card {
-  @apply flex flex-col justify-center items-center md:w-4/12 w-3/6 m-4 p-6 bg-white border-2 border-gray-500 rounded-md;
+  @apply p-4 md:w-4/12 w-3/6;
+}
+
+.card-content {
+  @apply flex flex-col justify-between items-start p-6 bg-white rounded-xl w-full;
+}
+
+.description {
+  @apply flex flex-col items-start justify-start ml-4 w-full;
 }
 
 .dish-img {
-  margin: 16px;
+  border-radius: 16px;
   height: 150px;
   width: 150px;
   object-fit: cover;
 }
 
 .dish-name {
-  @apply flex flex-row items-end justify-between w-full;
+  @apply font-bold w-full;
+
+  height: 72px;
 }
 
 .likes {
-  @apply flex flex-row items-center justify-end w-full;
+  @apply flex flex-row items-center justify-start w-full;
+}
+
+.likes-btn {
+  @apply flex flex-col items-center justify-center;
+
+  font-size: 30px;
+  line-height: 30px;
+  padding: 8px;
+}
+
+.likes-btn:hover {
+  background-color: #dcb342;
+  border-radius: 50%;
+}
+
+.likes-row {
+  @apply flex flex-row justify-between w-full;
+}
+
+.meal {
+  @apply flex flex-row mb-4 w-full;
 }
 
 .comment {
   @apply flex justify-start items-center gap-2;
 }
 
-.main-button {
-  @apply m-1 px-2 py-1 border-2 border-gray-500 rounded shadow-md shadow-slate-500;
+.main-btn {
+  @apply bg-blue-600 text-white rounded mx-4 px-2 py-1 hover:bg-blue-500 disabled:bg-gray-200 disabled:text-black;
+}
+
+.buttons {
+  @apply flex flex-row items-center justify-center w-full;
 }
 
 .input {
@@ -59,4 +94,8 @@ body {
 
 .btn {
   @apply bg-blue-600 text-white rounded px-2 py-1 ml-auto hover:bg-blue-500;
+}
+
+.bottom-filler {
+  height: 105px;
 }
