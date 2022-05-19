@@ -1,10 +1,10 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Meal Time restaurante website
+# Meal Time restaurant website
 
-> The Meal Time website is our JavaScript capstone project. It is about building our own web application based on two external API. We selected the [Free Meal API](https://www.themealdb.com/api.php) by [TheMealDB](https://www.themealdb.com/) that provides data for meals to build the webapp around it. We also used the [Involvement API](https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270) by [Microverse](https://www.microverse.org/) to record _likes_ and _comments_.
+> The Meal Time website is our JavaScript capstone project. It is about building our web application based on two external APIs. We selected the [Free Meal API](https://www.themealdb.com/api.php) by [TheMealDB](https://www.themealdb.com/) which provides data for meals to build the web app around it. We also used the [Involvement API](https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270) by [Microverse](https://www.microverse.org/) to record _likes_ and _comments_.
 
-The webapp has two user interfaces, since we were a team of two:
+The web app has two user interfaces since we are a team of two:
 
 - A home page showing a list of items that you can "like."
 - A popup window with more data about an item that you can use to comment on.
@@ -50,14 +50,14 @@ Type this command into the terminal:
 
 ### Build
 
-Type these comands into the terminal:
+Type these commands into the terminal:
 
 - npm run build
-- Open dist/index.html in you web browser.
+- Open dist/index.html in your web browser.
 
 ### Run webpack dev server
 
-Type these comands into the terminal:
+Type these commands into the terminal:
 
 - npm run start
 - Your web browser will open on localhost:8080
@@ -100,7 +100,7 @@ Give a ⭐️ if you like this project!
 
 - [Free Meal API](https://www.themealdb.com/api.php) by [TheMealDB](https://www.themealdb.com/)
 - [Involvement API](https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270) by [Microverse](https://www.microverse.org/)
-- Logo by Elisa Baños, based on [Vector de catering logo creado por freepik](https://www.freepik.es/vectores/catering-logo) - [www.freepik.es](https://www.freepik.es/)
+- Logo based on [Pack de plantillas de logotipos de catering plano vector gratuito creado por freepik](https://www.freepik.es/vector-gratis/pack-plantillas-logotipos-catering-plano_15291829.htm) - [www.freepik.es](https://www.freepik.es/)
 
 ## 📝 License
 
