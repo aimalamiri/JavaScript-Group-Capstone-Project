@@ -36,8 +36,8 @@ class MainUi {
           <div class="description">
             <span class="dish-name">${item.strMeal}</span>
             <span class="likes-row">
-              <div class="likes">n likes</div>
               <div class="likes-btn"><i class="fa-regular fa-heart"></i></div>
+              <div class="likes">n likes</div>
             </span>
           </div>
         </div>
@@ -45,7 +45,7 @@ class MainUi {
           <button type="button" class="main-btn meal-comment">
             Comments &nbsp; <i class="fa-regular fa-comment"></i>
           </button>
-          <button type="button" class="main-btn" disabled>
+          <button type="button" class="main-btn hide-in-mobile" disabled>
             Reservations &nbsp; <i class="fa-regular fa-calendar"></i>
           </button>
         </div>
