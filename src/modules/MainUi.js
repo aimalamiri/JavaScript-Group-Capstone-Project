@@ -6,7 +6,7 @@ import { INVOLVEMENT_API_KEY } from './environment.js';
 class MainUi {
   setup = async () => {
     await this.showList();
-    this.idApp = INVOLVEMENT_API_KEY || await api.createApp();
+    this.idApp = INVOLVEMENT_API_KEY || (await api.createApp());
     await this.showLikes();
   };
 
@@ -30,7 +30,7 @@ class MainUi {
 
   showItem = async (listElement, item) => {
     const liElement = `<li class="card" data-meal-id="${item.idMeal}">
-      <img src="${item.strMealThumb}/preview" alt="${item.strMeal}  image">
+      <img src="${item.strMealThumb}/preview" alt="${item.strMeal} image" class="dish-img">
       <div class="dish-name">
         <span>${item.strMeal}</span>
         <i class="fa-regular fa-heart"></i>
