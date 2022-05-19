@@ -25,7 +25,7 @@ You may read [here](https://github.com/microverseinc/curriculum-javascript/blob/
 
 - [Live Demo Link](https://aimalamiri.github.io/JavaScript-Group-Capstone-Project/)
 
-- [Video presentation]()
+- [Video presentation](https://drive.google.com/file/d/1UHX68i6MkWBDDubmmGYOspCNi4Uy-YEH/view?usp=sharing)
 
 ## Getting Started
 
@@ -41,6 +41,11 @@ Type these commands into the terminal:
 
 - git clone https://github.com/aimalamiri/JavaScript-Group-Capstone-Project.git
 - cd JavaScript-Group-Capstone-Project
+
+You will need a .env file before you install and run the project. There is included an example file .env.example
+
+- cp .env.example .env (if you are using Linux or macOS)
+- If you work on Windows, you can use this command in Git Bash.
 
 ### Install
 
@@ -76,9 +81,9 @@ Type this command into the terminal:
 
 👤 **Aimal Amiri**
 
-- GitHub: [@githubhandle](https://github.com/aimalamiri)
-- Twitter: [@twitterhandle](https://twitter.com/Aimalamiri)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/aimal-amiri)
+- GitHub: [@aimalamiri](https://github.com/aimalamiri)
+- Twitter: [@meaimal](https://twitter.com/meaimal)
+- LinkedIn: [Aimal Amiri](https://linkedin.com/in/aimal-amiri)
 
 👤 **Roberto A. Baños Alvarez**
 
