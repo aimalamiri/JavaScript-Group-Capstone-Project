@@ -31,14 +31,24 @@ class MainUi {
   showItem = async (listElement, item) => {
     const liElement = `<li class="card" data-meal-id="${item.idMeal}">
       <div class="card-content">
-        <img src="${item.strMealThumb}/preview" alt="${item.strMeal} image" class="dish-img">
-        <div class="dish-name">
-          <span>${item.strMeal}</span>
-          <i class="fa-regular fa-heart"></i>
+        <div class="meal">
+          <img src="${item.strMealThumb}/preview" alt="${item.strMeal} image" class="dish-img">
+          <div class="description">
+            <span class="dish-name">${item.strMeal}</span>
+            <span class="likes-row">
+              <div class="likes">n likes</div>
+              <div class="likes-btn"><i class="fa-regular fa-heart"></i></div>
+            </span>
+          </div>
         </div>
-        <div class="likes">n likes</div>
-        <button type="button" class="main-btn meal-comment"">Coments &nbsp; <span class="fa fa-comment"></button>
-        <button type="button" class="main-btn">Reservations &nbsp; <i class="fa fa-calendar"></i></button>
+        <div class="buttons">
+          <button type="button" class="main-btn meal-comment">
+            Comments &nbsp; <i class="fa-regular fa-comment"></i>
+          </button>
+          <button type="button" class="main-btn" disabled>
+            Reservations &nbsp; <i class="fa-regular fa-calendar"></i>
+          </button>
+        </div>
       </div>
     </li>`;
     listElement.insertAdjacentHTML('beforeend', liElement);
