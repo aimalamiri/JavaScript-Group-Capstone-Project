@@ -36,8 +36,8 @@ class MainUi {
         <i class="fa-regular fa-heart"></i>
       </div>
       <div class="likes">n likes</div>
-      <button type="button" class="main-button meal-comment"">Coments</button>
-      <button type="button" class="main-button">Reservations</button>
+      <button type="button" class="main-btn meal-comment"">Coments &nbsp; <span class="fa fa-comment"></button>
+      <button type="button" class="main-btn">Reservations &nbsp; <i class="fa fa-calendar"></i></button>
     </li>`;
     listElement.insertAdjacentHTML('beforeend', liElement);
     const btnElement = listElement.lastChild.querySelector('button');

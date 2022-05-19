@@ -49,8 +49,8 @@ body {
   @apply flex justify-start items-center gap-2;
 }
 
-.main-button {
-  @apply m-1 px-2 py-1 border-2 border-gray-500 rounded shadow-md shadow-slate-500;
+.main-btn {
+  @apply bg-blue-600 text-white rounded m-2 px-4 py-2 hover:bg-blue-500;
 }
 
 .input {
