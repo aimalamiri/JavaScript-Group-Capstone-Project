@@ -6,12 +6,16 @@ body {
   @apply relative min-h-screen;
 }
 
+.container {
+  @apply md:px-24 px-12;
+}
+
 .link {
   @apply text-blue-600 hover:text-blue-500 transition-all duration-200;
 }
 
 .main-header {
-  @apply flex flex-row items-center justify-around w-full;
+  @apply flex flex-row items-center justify-between w-full;
 }
 
 .badge {
@@ -20,10 +24,7 @@ body {
 
 .logo {
   background: url("../images/logo.png") no-repeat center center;
-  background-size: contain;
-  margin: 10px;
-  width: 128px;
-  height: 100px;
+  @apply h-16 md:h-20 w-20 bg-contain;
 }
 
 .card {
