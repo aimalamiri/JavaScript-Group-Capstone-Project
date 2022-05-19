@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply relative min-h-screen;
+}
+
+.container {
+  @apply md:px-24 px-8 mx-auto;
+}
+
+.link {
+  @apply text-blue-600 hover:text-blue-500 transition-all duration-200;
+}
+
+.main-header {
+  @apply flex flex-row items-center justify-between w-full;
+}
+
+.badge {
+  @apply bg-blue-500 text-white rounded-xl py-1 px-2 text-xs;
+}
+
+.logo {
+  background: url("../images/logo.png") no-repeat center center;
+
+  @apply h-16 md:h-20 w-20 bg-contain;
+}
+
+.card {
+  @apply lg:p-4 p-2 lg:w-4/12 md:w-3/6 w-full;
+}
+
+.card-content {
+  @apply flex flex-col justify-between items-start lg:p-6 md:p-4 p-2 bg-white rounded-xl w-full shadow;
+}
+
+.description {
+  @apply lg:ml-4 ml-2 w-full;
+}
+
+.dish-img {
+  @apply rounded-lg lg:h-32 lg:w-32 h-24 w-24 object-cover;
+}
+
+.dish-name {
+  @apply font-bold w-full lg:text-base text-sm;
+}
+
+.likes {
+  @apply flex items-center;
+}
+
+.likes-btn {
+  @apply pr-2 text-3xl leading-3 hover:text-red-500 transition-all delay-150 ease-in;
+}
+
+.likes-row {
+  @apply flex items-center pt-4;
+}
+
+.meal {
+  @apply flex flex-row mb-4 w-full;
+}
+
+.comment {
+  @apply flex justify-start items-center gap-2;
+}
+
+.main-btn {
+  @apply bg-blue-600 text-white rounded px-2 py-1
+    xl:text-base hover:bg-blue-500 disabled:bg-gray-200
+    disabled:text-black disabled:cursor-not-allowed text-xs;
+}
+
+.buttons {
+  @apply flex items-center justify-between w-full;
+}
+
+.input {
+  @apply w-full rounded shadow-inner border-sky-200 outline-none border-2 p-2 mt-2;
+}
+
+.btn {
+  @apply bg-blue-600 text-white rounded px-2 py-1 ml-auto hover:bg-blue-500;
+}
+
+.bottom-filler {
+  height: 105px;
+}
+
+.hide-in-mobile {
+  @apply hidden lg:block;
+}
