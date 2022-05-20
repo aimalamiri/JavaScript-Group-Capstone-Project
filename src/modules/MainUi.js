@@ -44,7 +44,7 @@ class MainUi {
       const name = e.target.lastElementChild ? e.target.lastElementChild.textContent : e.target.textContent;
       document.querySelector('#item-list').innerHTML = '';
       this.showList(name);
-      
+      this.showLikes();
     });
   };
 
@@ -66,7 +66,7 @@ class MainUi {
             <span class="dish-name">${item.strMeal}</span>
             <span class="likes-row">
               <div class="likes-btn"><i class="fa-regular fa-heart"></i></div>
-              <div class="likes">n likes</div>
+              <div class="likes">No likes</div>
             </span>
           </div>
         </div>
