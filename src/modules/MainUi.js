@@ -56,7 +56,7 @@ class MainUi {
     });
   };
 
-  showMealCount = () => mealCount();
+  showMealCount = (category) => mealCount(category);
 
   showItem = async (listElement, item) => {
     const liElementHtml = `<li class="card" data-meal-id="${item.idMeal}">
@@ -99,7 +99,7 @@ class MainUi {
     dishes.forEach((dish) => {
       this.showItem(listElement, dish);
     });
-    this.showMealCount();
+    this.showMealCount(category);
   };
 
   showLike = async (element, likes) => {
