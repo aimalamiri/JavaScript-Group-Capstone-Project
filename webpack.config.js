@@ -10,9 +10,7 @@ module.exports = {
     static: './dist',
   },
   plugins: [
-    new Dotenv({
-      systemvars: true
-    }),
+    new Dotenv(),
     new HtmlWebpackPlugin({
       title: 'Webpack Boilerplate',
       template: './src/index.html',
@@ -31,6 +29,10 @@ module.exports = {
       {
         test: /\.s*css$/i,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
       {
         test: /\.js$/i,
