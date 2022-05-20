@@ -6,6 +6,7 @@ import errorImg from '../images/logo.png';
 
 class MainUi {
   setup = async () => {
+    await this.showCategory();
     await this.showList(DEFAULT_CATEGORY);
     this.idApp = INVOLVEMENT_API_KEY || (await api.createApp());
     await this.showLikes();
@@ -25,6 +26,33 @@ class MainUi {
     await api.addLike(this.idApp, mealId);
     const likes = await api.getLikes(this.idApp);
     await this.showLike(liElement, likes);
+  };
+
+  insertCategory = async (category) => {
+    const html = `
+        <div class="category-image" style="background-image: url('${category.strCategoryThumb}')">
+          <div class="category-content">
+            <h3 class="text-lg font-bold">${category.strCategory}</h3>
+          </div>
+        </div>
+    `;
+
+    const catElement = document.createRange().createContextualFragment(html);
+    const categories = document.querySelector('#categories');
+    categories.appendChild(catElement);
+    categories.lastElementChild.addEventListener('click', (e) => {
+      const name = e.target.lastElementChild ? e.target.lastElementChild.textContent : e.target.textContent;
+      document.querySelector('#item-list').innerHTML = '';
+      this.showList(name);
+      
+    });
+  };
+
+  showCategory = async () => {
+    const categories = await api.getCategories();
+    categories.forEach((cat) => {
+      this.insertCategory(cat);
+    });
   };
 
   showMealCount = () => mealCount();
