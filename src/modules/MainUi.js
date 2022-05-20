@@ -1,12 +1,12 @@
 import api from './Api.js';
 import mealCount from './mealCount.js';
 import Modal from './Modal.js';
-import { INVOLVEMENT_API_KEY } from './environment.js';
+import { INVOLVEMENT_API_KEY, DEFAULT_CATEGORY } from './environment.js';
 import errorImg from '../images/logo.png';
 
 class MainUi {
   setup = async () => {
-    await this.showList('Beef');
+    await this.showList(DEFAULT_CATEGORY);
     this.idApp = INVOLVEMENT_API_KEY || (await api.createApp());
     await this.showLikes();
   };
