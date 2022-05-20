@@ -2,10 +2,11 @@ import api from './Api.js';
 import mealCount from './mealCount.js';
 import Modal from './Modal.js';
 import { INVOLVEMENT_API_KEY } from './environment.js';
+import errorImg from '../images/logo.png';
 
 class MainUi {
   setup = async () => {
-    await this.showList();
+    await this.showList('Beef');
     this.idApp = INVOLVEMENT_API_KEY || (await api.createApp());
     await this.showLikes();
   };
@@ -29,7 +30,7 @@ class MainUi {
   showMealCount = () => mealCount();
 
   showItem = async (listElement, item) => {
-    const liElement = `<li class="card" data-meal-id="${item.idMeal}">
+    const liElementHtml = `<li class="card" data-meal-id="${item.idMeal}">
       <div class="card-content">
         <div class="meal">
           <img src="${item.strMealThumb}/preview" alt="${item.strMeal} image" class="dish-img">
@@ -51,15 +52,20 @@ class MainUi {
         </div>
       </div>
     </li>`;
-    listElement.insertAdjacentHTML('beforeend', liElement);
-    const btnElement = listElement.lastChild.querySelector('button');
+    listElement.insertAdjacentHTML('beforeend', liElementHtml);
+    const liElement = listElement.lastChild;
+    const btnElement = liElement.querySelector('button');
     btnElement.addEventListener('click', this.openComments);
-    const likeElement = listElement.lastChild.querySelector('i');
+    const likeElement = liElement.querySelector('i');
     likeElement.addEventListener('click', this.addLike);
+    liElement.querySelector('img').onerror = (error) => {
+      error.target.src = errorImg;
+      error.target.onerror = null;
+    };
   };
 
-  showList = async () => {
-    const dishes = await api.getByCategory('Chicken');
+  showList = async (category) => {
+    const dishes = await api.getByCategory(category);
     const listElement = document.querySelector('#item-list');
     dishes.forEach((dish) => {
       this.showItem(listElement, dish);
