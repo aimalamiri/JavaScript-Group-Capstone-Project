@@ -41,7 +41,8 @@ class MainUi {
     const categories = document.querySelector('#categories');
     categories.appendChild(catElement);
     categories.lastElementChild.addEventListener('click', (e) => {
-      const name = e.target.lastElementChild ? e.target.lastElementChild.textContent : e.target.textContent;
+      const lastElement = e.target.lastElementChild;
+      const name = lastElement ? lastElement.textContent : e.target.textContent;
       document.querySelector('#item-list').innerHTML = '';
       this.showList(name);
       this.showLikes();
