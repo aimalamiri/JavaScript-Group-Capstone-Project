@@ -93,3 +93,20 @@ body {
 .hide-in-mobile {
   @apply hidden lg:block;
 }
+
+.category-image {
+  @apply text-white bg-cover bg-no-repeat shadow-lg rounded-lg;
+}
+
+.category-image:nth-of-type(odd) {
+  @apply row-span-2;
+}
+
+.category-content {
+  @apply flex items-center justify-center rounded-lg p-10 bg-opacity-60
+    hover:bg-opacity-30 cursor-pointer transition-all duration-300 ease-linear bg-gray-600;
+}
+
+.category-content:nth-of-type(odd) {
+  @apply h-full;
+}
